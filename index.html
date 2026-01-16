@@ -1,1 +1,198 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Beautiful Place - An intimate documentary exploring the hidden corners of human connection.">
+    
+    <!-- Page Title - Change this to your documentary title -->
+    <title>A Beautiful Place | Documentary</title>
+    
+    <!-- Fonts - Using Cormorant Garamond for elegance and DM Sans for readability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- ============================================
+         HERO SECTION
+         Fullscreen intro with title, tagline, and video
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            
+            <!-- Documentary Title - Replace with your title -->
+            <h1 class="hero-title">A Beautiful Place</h1>
+            
+            <!-- Tagline / One-liner - Replace with your tagline -->
+            <p class="hero-tagline">An intimate journey through the landscapes we call home.</p>
+            
+            <!-- Vimeo On Demand Embed
+                 Replace the src URL with your actual Vimeo VOD embed link
+                 Format: https://player.vimeo.com/video/YOUR_VIDEO_ID -->
+            <div class="video-container">
+                <iframe 
+                    src="https://player.vimeo.com/video/824804225?h=abcd1234&title=0&byline=0&portrait=0" 
+                    frameborder="0" 
+                    allow="fullscreen; picture-in-picture" 
+                    allowfullscreen
+                    title="A Beautiful Place - Official Trailer">
+                </iframe>
+            </div>
+            
+            <!-- Call to Action Button
+                 Replace href with your Vimeo VOD purchase page -->
+            <a href="https://vimeo.com/ondemand/abeautifulplace" class="cta-button" target="_blank" rel="noopener">
+                Watch Now
+            </a>
+            
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+    
+    
+    <!-- ============================================
+         SYNOPSIS SECTION
+         Brief description of the documentary
+         ============================================ -->
+    <section class="synopsis" id="synopsis">
+        <div class="container">
+            
+            <h2 class="section-label">Synopsis</h2>
+            
+            <!-- Synopsis Text - Replace with your documentary's synopsis -->
+            <p class="synopsis-text">
+                In the quiet spaces between memory and place, filmmaker Elena Voss discovers 
+                a forgotten village on the edge of the world. What begins as a simple portrait 
+                of disappearing architecture becomes an unexpected meditation on belonging, 
+                loss, and the landscapes that shape who we become.
+            </p>
+            <p class="synopsis-text">
+                Shot over three years across remote regions, <em>A Beautiful Place</em> weaves 
+                together the voices of those who stayed and those who left—each searching for 
+                a meaning that only silence can reveal.
+            </p>
+            
+        </div>
+    </section>
+    
+    
+    <!-- ============================================
+         QUOTES / SELECTIONS SECTION
+         Press quotes and festival mentions
+         ============================================ -->
+    <section class="quotes" id="quotes">
+        <div class="container">
+            
+            <h2 class="section-label">Press & Selections</h2>
+            
+            <div class="quotes-grid">
+                
+                <!-- Quote 1 - Replace with actual press quote -->
+                <blockquote class="quote-item">
+                    <p class="quote-text">"A masterclass in visual poetry. Voss has crafted something truly unforgettable."</p>
+                    <cite class="quote-source">— Sight & Sound</cite>
+                </blockquote>
+                
+                <!-- Quote 2 - Replace with actual press quote -->
+                <blockquote class="quote-item">
+                    <p class="quote-text">"Quietly devastating. The kind of film that stays with you for days."</p>
+                    <cite class="quote-source">— Variety</cite>
+                </blockquote>
+                
+                <!-- Festival Selection - Replace with actual selection -->
+                <blockquote class="quote-item festival">
+                    <p class="quote-text">Official Selection</p>
+                    <cite class="quote-source">IDFA 2025</cite>
+                </blockquote>
+                
+            </div>
+            
+        </div>
+    </section>
+    
+    
+    <!-- ============================================
+         DETAILS & CREDITS SECTION
+         Technical info and key credits
+         ============================================ -->
+    <section class="details" id="details">
+        <div class="container">
+            
+            <h2 class="section-label">Details</h2>
+            
+            <div class="details-grid">
+                
+                <!-- Director - Replace with actual name -->
+                <div class="detail-item">
+                    <span class="detail-label">Directed by</span>
+                    <span class="detail-value">Elena Voss</span>
+                </div>
+                
+                <!-- Producer - Replace with actual name -->
+                <div class="detail-item">
+                    <span class="detail-label">Produced by</span>
+                    <span class="detail-value">Marcus Chen, Sofia Lindqvist</span>
+                </div>
+                
+                <!-- Year - Replace with actual year -->
+                <div class="detail-item">
+                    <span class="detail-label">Year</span>
+                    <span class="detail-value">2025</span>
+                </div>
+                
+                <!-- Runtime - Replace with actual runtime -->
+                <div class="detail-item">
+                    <span class="detail-label">Runtime</span>
+                    <span class="detail-value">94 minutes</span>
+                </div>
+                
+                <!-- Language - Replace with actual language(s) -->
+                <div class="detail-item">
+                    <span class="detail-label">Language</span>
+                    <span class="detail-value">English, Norwegian</span>
+                </div>
+                
+                <!-- Country - Replace with actual country -->
+                <div class="detail-item">
+                    <span class="detail-label">Country</span>
+                    <span class="detail-value">Norway / United Kingdom</span>
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+    
+    
+    <!-- ============================================
+         FOOTER
+         Contact and copyright
+         ============================================ -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            
+            <!-- Contact Email - Replace with your actual email -->
+            <a href="mailto:info@abeautifulplace.film" class="footer-email">info@abeautifulplace.film</a>
+            
+            <!-- Copyright - Update year and name as needed -->
+            <p class="footer-copyright">© 2025 A Beautiful Place. All rights reserved.</p>
+            
+        </div>
+    </footer>
+    
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    
+</body>
+</html>
