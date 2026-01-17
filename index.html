@@ -3,196 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Beautiful Place - An intimate documentary exploring the hidden corners of human connection.">
+    <meta name="description" content="A documentary film about Lebanon Hanover - following the iconic post-punk duo on tour through Europe.">
     
-    <!-- Page Title - Change this to your documentary title -->
-    <title>A Beautiful Place | Documentary</title>
+    <title>Lebanon Hanover | Documentary Film</title>
     
-    <!-- Fonts - Using Cormorant Garamond for elegance and DM Sans for readability -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
     <!-- ============================================
-         HERO SECTION
-         Fullscreen intro with title, tagline, and video
+         NAVIGATION
+         Sticky menu with anchor links
          ============================================ -->
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            
-            <!-- Documentary Title - Replace with your title -->
-            <h1 class="hero-title">A Beautiful Place</h1>
-            
-            <!-- Tagline / One-liner - Replace with your tagline -->
-            <p class="hero-tagline">An intimate journey through the landscapes we call home.</p>
-            
-            <!-- Vimeo On Demand Embed
-                 Replace the src URL with your actual Vimeo VOD embed link
-                 Format: https://player.vimeo.com/video/YOUR_VIDEO_ID -->
-            <div class="video-container">
-                <iframe 
-                    src="https://player.vimeo.com/video/824804225?h=abcd1234&title=0&byline=0&portrait=0" 
-                    frameborder="0" 
-                    allow="fullscreen; picture-in-picture" 
-                    allowfullscreen
-                    title="A Beautiful Place - Official Trailer">
-                </iframe>
-            </div>
-            
-            <!-- Call to Action Button
-                 Replace href with your Vimeo VOD purchase page -->
-            <a href="https://vimeo.com/ondemand/abeautifulplace" class="cta-button" target="_blank" rel="noopener">
-                Watch Now
-            </a>
-            
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#trailer" class="nav-link">Trailer & Stream</a>
+            <a href="#film" class="nav-link">About the Film</a>
+            <a href="#band" class="nav-link">About the Band</a>
+            <a href="#director" class="nav-link">About the Director</a>
+            <a href="#screenings" class="nav-link nav-link-highlight">Screenings</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#presskit" class="nav-link">Press Kit</a>
         </div>
         
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-    
-    
+        <!-- Mobile menu toggle -->
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+        </button>
+    </nav>
+
+
     <!-- ============================================
-         SYNOPSIS SECTION
-         Brief description of the documentary
+         TRAILER & STREAM SECTION (Landing)
+         YouTube trailer + Vimeo On Demand
          ============================================ -->
-    <section class="synopsis" id="synopsis">
+    <section id="trailer" class="section section-hero">
         <div class="container">
             
-            <h2 class="section-label">Synopsis</h2>
+            <h1 class="hero-title">Lebanon Hanover</h1>
+            <p class="hero-subtitle">A Documentary Film</p>
             
-            <!-- Synopsis Text - Replace with your documentary's synopsis -->
-            <p class="synopsis-text">
-                In the quiet spaces between memory and place, filmmaker Elena Voss discovers 
-                a forgotten village on the edge of the world. What begins as a simple portrait 
-                of disappearing architecture becomes an unexpected meditation on belonging, 
-                loss, and the landscapes that shape who we become.
-            </p>
-            <p class="synopsis-text">
-                Shot over three years across remote regions, <em>A Beautiful Place</em> weaves 
-                together the voices of those who stayed and those who left—each searching for 
-                a meaning that only silence can reveal.
-            </p>
+            <!-- YouTube Trailer Embed -->
+            <div class="video-section">
+                <h2 class="video-label">Official Trailer</h2>
+                <div class="embed-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/SrhEgeIzZBY" 
+                        title="Lebanon Hanover Documentary - Official Trailer"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
             
-        </div>
-    </section>
-    
-    
-    <!-- ============================================
-         QUOTES / SELECTIONS SECTION
-         Press quotes and festival mentions
-         ============================================ -->
-    <section class="quotes" id="quotes">
-        <div class="container">
+            <!-- Vimeo On Demand Embed (Placeholder) -->
+            <div class="video-section">
+                <h2 class="video-label">Full Documentary</h2>
+                <div class="embed-container">
+                    <iframe 
+                        src="https://player.vimeo.com/video/76979871" 
+                        title="Lebanon Hanover Documentary - Full Film"
+                        frameborder="0" 
+                        allow="fullscreen; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
             
-            <h2 class="section-label">Press & Selections</h2>
-            
-            <div class="quotes-grid">
-                
-                <!-- Quote 1 - Replace with actual press quote -->
-                <blockquote class="quote-item">
-                    <p class="quote-text">"A masterclass in visual poetry. Voss has crafted something truly unforgettable."</p>
-                    <cite class="quote-source">— Sight & Sound</cite>
-                </blockquote>
-                
-                <!-- Quote 2 - Replace with actual press quote -->
-                <blockquote class="quote-item">
-                    <p class="quote-text">"Quietly devastating. The kind of film that stays with you for days."</p>
-                    <cite class="quote-source">— Variety</cite>
-                </blockquote>
-                
-                <!-- Festival Selection - Replace with actual selection -->
-                <blockquote class="quote-item festival">
-                    <p class="quote-text">Official Selection</p>
-                    <cite class="quote-source">IDFA 2025</cite>
-                </blockquote>
-                
+            <!-- Call to Action -->
+            <div class="cta-wrapper">
+                <a href="https://vimeo.com/ondemand/lebanonhanover" class="cta-button" target="_blank" rel="noopener">
+                    Watch the Documentary
+                </a>
             </div>
             
         </div>
     </section>
-    
-    
+
+
     <!-- ============================================
-         DETAILS & CREDITS SECTION
-         Technical info and key credits
+         ABOUT THE FILM
          ============================================ -->
-    <section class="details" id="details">
+    <section id="film" class="section">
         <div class="container">
             
-            <h2 class="section-label">Details</h2>
+            <h2 class="section-title">About the Film</h2>
             
-            <div class="details-grid">
+            <div class="content-block">
+                <p class="body-text">
+                    The film follows Lebanon Hanover on tour in the fall of 2024, getting close to members 
+                    William Maybelline and Larissa Iceglass. It explores the symbiotic relationship between 
+                    the band and its fans and features performances from Bristol, London, Paris, and Berlin.
+                </p>
                 
-                <!-- Director - Replace with actual name -->
-                <div class="detail-item">
-                    <span class="detail-label">Directed by</span>
-                    <span class="detail-value">Elena Voss</span>
+                <div class="film-specs">
+                    <span class="spec-item">Duration: 48 minutes</span>
+                    <span class="spec-divider">|</span>
+                    <span class="spec-item">4K</span>
                 </div>
-                
-                <!-- Producer - Replace with actual name -->
-                <div class="detail-item">
-                    <span class="detail-label">Produced by</span>
-                    <span class="detail-value">Marcus Chen, Sofia Lindqvist</span>
-                </div>
-                
-                <!-- Year - Replace with actual year -->
-                <div class="detail-item">
-                    <span class="detail-label">Year</span>
-                    <span class="detail-value">2025</span>
-                </div>
-                
-                <!-- Runtime - Replace with actual runtime -->
-                <div class="detail-item">
-                    <span class="detail-label">Runtime</span>
-                    <span class="detail-value">94 minutes</span>
-                </div>
-                
-                <!-- Language - Replace with actual language(s) -->
-                <div class="detail-item">
-                    <span class="detail-label">Language</span>
-                    <span class="detail-value">English, Norwegian</span>
-                </div>
-                
-                <!-- Country - Replace with actual country -->
-                <div class="detail-item">
-                    <span class="detail-label">Country</span>
-                    <span class="detail-value">Norway / United Kingdom</span>
-                </div>
-                
             </div>
             
         </div>
     </section>
-    
-    
+
+
+    <!-- ============================================
+         ABOUT THE BAND
+         ============================================ -->
+    <section id="band" class="section section-alt">
+        <div class="container">
+            
+            <h2 class="section-title">About the Band</h2>
+            
+            <div class="content-block">
+                <p class="body-text">
+                    Lebanon Hanover is a Swiss–British post-punk duo formed in 2010 in England. The band 
+                    consists of vocalist and guitarist Larissa Iceglass and vocalist and bassist William 
+                    Maybelline. The trailblazing duo has proven to be one of the most influential post-punk 
+                    groups of our time, a driving force behind the current scene revival with their uniquely 
+                    somber and minimalistic, yet luringly infectious sound.
+                </p>
+                
+                <div class="links-row">
+                    <a href="https://www.lebanonhanover.com" class="text-link" target="_blank" rel="noopener">
+                        Website
+                        <span class="link-arrow">→</span>
+                    </a>
+                    <a href="https://www.instagram.com/lebanon_hanover" class="text-link" target="_blank" rel="noopener">
+                        Instagram
+                        <span class="link-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         ABOUT THE DIRECTOR
+         ============================================ -->
+    <section id="director" class="section">
+        <div class="container">
+            
+            <h2 class="section-title">About the Director</h2>
+            
+            <div class="content-block">
+                <p class="body-text">
+                    Isolde Woudstra is a Dutch photographer known for her intimate, atmospheric portraits 
+                    and documentary-style photography. She captures authentic, unguarded moments with an 
+                    emphasis on the unspoken emotions and nuances of human experience. Woudstra has been 
+                    working for clients such as Le Monde, KesselsKramer, Stern, NME Networks, and de 
+                    Volkskrant, and her work has been exhibited at Foam, Unseen, and photomonth Krakow.
+                </p>
+                
+                <div class="links-row">
+                    <a href="https://www.isoldewoudstra.com" class="text-link" target="_blank" rel="noopener">
+                        Website
+                        <span class="link-arrow">→</span>
+                    </a>
+                    <a href="https://www.instagram.com/isoldewoudstra" class="text-link" target="_blank" rel="noopener">
+                        Instagram
+                        <span class="link-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         SCREENINGS (Highlighted Section)
+         ============================================ -->
+    <section id="screenings" class="section section-screenings">
+        <div class="container">
+            
+            <h2 class="section-title">Screenings</h2>
+            
+            <div class="screenings-list">
+                
+                <!-- Screening 1 -->
+                <article class="screening-item">
+                    <div class="screening-date">
+                        <span class="date-day">20</span>
+                        <span class="date-month">Sept 2025</span>
+                    </div>
+                    <div class="screening-info">
+                        <h3 class="screening-title">Music Film Festival</h3>
+                        <p class="screening-location">Tilburg, NL</p>
+                        <p class="screening-note">+ Q&A with director Isolde Woudstra</p>
+                    </div>
+                </article>
+                
+                <!-- Screening 2 -->
+                <article class="screening-item">
+                    <div class="screening-date">
+                        <span class="date-day">18</span>
+                        <span class="date-month">Oct 2025</span>
+                    </div>
+                    <div class="screening-info">
+                        <h3 class="screening-title">Klubb Dod</h3>
+                        <p class="screening-location">Stockholm, SE</p>
+                    </div>
+                </article>
+                
+                <!-- Screening 3 -->
+                <article class="screening-item">
+                    <div class="screening-date">
+                        <span class="date-day">03</span>
+                        <span class="date-month">Nov 2025</span>
+                    </div>
+                    <div class="screening-info">
+                        <h3 class="screening-title">Doc 'n Roll Film Festival</h3>
+                        <p class="screening-location">Rio Cinema, London, UK</p>
+                        <p class="screening-note">+ Q&A with director Isolde Woudstra</p>
+                    </div>
+                </article>
+                
+                <!-- Screening 4 -->
+                <article class="screening-item">
+                    <div class="screening-date">
+                        <span class="date-day">14</span>
+                        <span class="date-month">Nov 2025</span>
+                    </div>
+                    <div class="screening-info">
+                        <h3 class="screening-title">Braunschweig International Film Festival</h3>
+                        <p class="screening-location">Braunschweig, DE</p>
+                    </div>
+                </article>
+                
+                <!-- Screening 5 -->
+                <article class="screening-item">
+                    <div class="screening-date">
+                        <span class="date-day">20</span>
+                        <span class="date-month">May 2026</span>
+                    </div>
+                    <div class="screening-info">
+                        <h3 class="screening-title">Dokstation Music Documentary Film Festival</h3>
+                        <p class="screening-location">Bucharest, RO</p>
+                    </div>
+                </article>
+                
+            </div>
+            
+            <!-- Host a Screening CTA -->
+            <div class="cta-wrapper">
+                <a href="mailto:info@isoldewoudstra.com?subject=Host%20a%20Screening" class="cta-button cta-button-outline">
+                    Host a Screening
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         CONTACT
+         ============================================ -->
+    <section id="contact" class="section">
+        <div class="container">
+            
+            <h2 class="section-title">Contact</h2>
+            
+            <div class="content-block content-block-centered">
+                <p class="body-text">For inquiries about screenings, press, or distribution:</p>
+                <a href="mailto:info@isoldewoudstra.com" class="contact-email">info@isoldewoudstra.com</a>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         PRESS KIT
+         ============================================ -->
+    <section id="presskit" class="section section-alt">
+        <div class="container">
+            
+            <h2 class="section-title">Press Kit</h2>
+            
+            <div class="content-block content-block-centered">
+                <p class="body-text">
+                    Download the press kit for high-resolution images, film stills, 
+                    and additional information about the documentary.
+                </p>
+                <a href="https://docs.google.com/document/d/your-press-kit-link" class="cta-button" target="_blank" rel="noopener">
+                    Download Press Kit
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+
     <!-- ============================================
          FOOTER
-         Contact and copyright
          ============================================ -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="container">
-            
-            <!-- Contact Email - Replace with your actual email -->
-            <a href="mailto:info@abeautifulplace.film" class="footer-email">info@abeautifulplace.film</a>
-            
-            <!-- Copyright - Update year and name as needed -->
-            <p class="footer-copyright">© 2025 A Beautiful Place. All rights reserved.</p>
-            
+            <p class="footer-text">© 2025 Isolde Woudstra. All rights reserved.</p>
         </div>
     </footer>
-    
-    
+
+
     <!-- JavaScript -->
     <script src="script.js"></script>
-    
+
 </body>
 </html>

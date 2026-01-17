@@ -1,26 +1,24 @@
 /* ============================================
-   A BEAUTIFUL PLACE - Documentary Website
-   Minimal JavaScript for enhanced UX
+   LEBANON HANOVER DOCUMENTARY
+   JavaScript for navigation and interactions
    ============================================ */
 
 /**
- * Initialize the website functionality
- * Called when DOM is fully loaded
+ * Initialize all functionality when DOM is ready
  */
 document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
-    initScrollIndicator();
-    initFadeInOnScroll();
+    initMobileNav();
+    initActiveNavHighlight();
 });
 
 
 /**
  * SMOOTH SCROLL
  * Handles smooth scrolling for anchor links
- * Already supported by CSS scroll-behavior, but this adds extra control
+ * Accounts for sticky navigation height
  */
 function initSmoothScroll() {
-    // Get all anchor links that point to sections on the page
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
     anchorLinks.forEach(function(link) {
@@ -34,10 +32,18 @@ function initSmoothScroll() {
             
             if (targetElement) {
                 event.preventDefault();
+                
+                // Close mobile menu if open
+                closeMobileMenu();
+                
+                // Scroll to element
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+                
+                // Update URL hash without jumping
+                history.pushState(null, null, targetId);
             }
         });
     });
@@ -45,67 +51,97 @@ function initSmoothScroll() {
 
 
 /**
- * SCROLL INDICATOR
- * Hides the scroll indicator when user scrolls down
+ * MOBILE NAVIGATION
+ * Toggle menu on mobile devices
  */
-function initScrollIndicator() {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
+function initMobileNav() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navContainer = document.querySelector('.nav-container');
     
-    if (!scrollIndicator) return;
+    if (!navToggle || !navContainer) return;
     
-    let hasScrolled = false;
-    
-    window.addEventListener('scroll', function() {
-        if (!hasScrolled && window.scrollY > 100) {
-            hasScrolled = true;
-            scrollIndicator.style.opacity = '0';
-            scrollIndicator.style.transition = 'opacity 0.5s ease';
-            
-            // Remove from DOM after fade out
-            setTimeout(function() {
-                scrollIndicator.style.display = 'none';
-            }, 500);
+    navToggle.addEventListener('click', function() {
+        const isOpen = navContainer.classList.contains('is-open');
+        
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
         }
-    }, { passive: true });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('.nav');
+        if (!nav.contains(event.target)) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+}
+
+function openMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navContainer = document.querySelector('.nav-container');
+    
+    if (navToggle && navContainer) {
+        navToggle.classList.add('is-open');
+        navContainer.classList.add('is-open');
+        navToggle.setAttribute('aria-expanded', 'true');
+    }
+}
+
+function closeMobileMenu() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navContainer = document.querySelector('.nav-container');
+    
+    if (navToggle && navContainer) {
+        navToggle.classList.remove('is-open');
+        navContainer.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
 }
 
 
 /**
- * FADE IN ON SCROLL
- * Subtle fade-in effect for sections as they enter viewport
+ * ACTIVE NAV HIGHLIGHT
+ * Highlights the current section in navigation while scrolling
  * Uses Intersection Observer for performance
  */
-function initFadeInOnScroll() {
+function initActiveNavHighlight() {
     // Check if browser supports Intersection Observer
     if (!('IntersectionObserver' in window)) return;
     
-    // Check for reduced motion preference
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    
-    // Select all sections except hero (hero is visible immediately)
-    const sections = document.querySelectorAll('.synopsis, .quotes, .details, .footer');
-    
-    // Set initial state
-    sections.forEach(function(section) {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    });
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
     
     // Create observer
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                const id = entry.target.getAttribute('id');
                 
-                // Stop observing after animation
-                observer.unobserve(entry.target);
+                // Remove active class from all links
+                navLinks.forEach(function(link) {
+                    link.classList.remove('is-active');
+                });
+                
+                // Add active class to current section link
+                const activeLink = document.querySelector('.nav-link[href="#' + id + '"]');
+                if (activeLink) {
+                    activeLink.classList.add('is-active');
+                }
             }
         });
     }, {
-        threshold: 0.1,      // Trigger when 10% visible
-        rootMargin: '0px 0px -50px 0px'  // Slight offset from bottom
+        rootMargin: '-50% 0px -50% 0px', // Trigger when section is in middle of viewport
+        threshold: 0
     });
     
     // Observe each section
@@ -116,40 +152,15 @@ function initFadeInOnScroll() {
 
 
 /**
- * UTILITY: Debounce function
- * Limits how often a function can be called
- * Useful for scroll/resize handlers (not currently used but available)
- * 
- * @param {Function} func - Function to debounce
- * @param {number} wait - Milliseconds to wait
- * @returns {Function} - Debounced function
+ * Add active state styling for nav links
+ * This is added via JS to keep CSS simpler
  */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = function() {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-
-/**
- * UTILITY: Check if element is in viewport
- * Can be used for custom scroll effects
- * 
- * @param {HTMLElement} element - Element to check
- * @returns {boolean} - True if element is visible
- */
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+(function addActiveStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .nav-link.is-active::after {
+            width: 100%;
+        }
+    `;
+    document.head.appendChild(style);
+})();
